@@ -1,0 +1,24 @@
+# https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dpy-hname
+  labels:
+    app: hostname
+spec:
+  selector:
+    matchLabels:
+      app: hostname
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hostname
+    spec:
+      containers:
+      - name: hname
+        image: crossbat/hostname:latest
+        ports:
+        - containerPort: 80
+---
+
