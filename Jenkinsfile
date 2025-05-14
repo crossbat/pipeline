@@ -29,7 +29,7 @@ pipeline{
     stages{
         stage('git scm update'){
             steps {
-                sh 'git clone https://github.com/crossbat/pipeline.git .'
+                checkout scm
             }
         }
         stage('docker build && push'){
